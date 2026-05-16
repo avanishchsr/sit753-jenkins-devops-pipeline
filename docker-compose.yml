@@ -1,0 +1,9 @@
+services:
+  student-connect-api:
+    build: .
+    image: student-connect-api:latest
+    container_name: student-connect-api
+    ports:
+      - "5000:5000"
+    environment:
+      - APP_ENV=staging
