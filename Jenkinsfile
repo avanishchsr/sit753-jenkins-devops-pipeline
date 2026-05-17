@@ -33,7 +33,7 @@ pipeline {
             steps {
                 echo 'Creating Python virtual environment and running automated tests with PyTest.'
                 bat 'python -m venv venv'
-                bat 'venv\\Scripts\\python.exe -m pip install --upgrade pip'
+                bat 'set PYTHONPATH=%CD% && venv\\Scripts\\pytest.exe -q --junitxml=reports\\test-results.xml'
                 bat 'venv\\Scripts\\pip.exe install -r requirements.txt'
                 bat 'if not exist reports mkdir reports'
                 bat 'venv\\Scripts\\pytest.exe -q --junitxml=reports\\test-results.xml'
